@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NET-ENG PRO</title>
+
+    <link rel="icon" type="image" href="asset/logo-kampak.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/6f5b33d1c7.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#07111f;
+    color:white;
+}
+
+/* ───── HEADER ───── */
+
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px 8%;
+
+    background:rgba(0,0,0,.45);
+    backdrop-filter:blur(10px);
+}
+
+/* ── Logo now a link ── */
+.logo a{
+    text-decoration:none;
+    color:white;
+    font-size:1.2rem;
+    font-weight:700;
+}
+
+.logo span{
+    color:#00d9ff;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#00d9ff;
+}
+
+/* ── Hamburger button (hidden on desktop) ── */
+.hamburger{
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    gap:5px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:6px;
+    z-index:1001;
+}
+
+/* Tiga garis */
+.hamburger span{
+    display:block;
+    width:24px;
+    height:2px;
+    background:white;
+    border-radius:2px;
+    transition:transform .3s, opacity .3s;
+}
+
+/* Animasi jadi × saat menu terbuka */
+.hamburger.open span:nth-child(1){
+    transform:translateY(7px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2){
+    opacity:0;
+}
+.hamburger.open span:nth-child(3){
+    transform:translateY(-7px) rotate(-45deg);
+}
+
+/* ───── HERO ───── */
+
+.hero{
+    height:100vh;
+
+    background:url("https://images.unsplash.com/photo-1518770660439-4636190af475")
+    center/cover;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    padding:0 8%;
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.65);
+}
+
+.hero-content{
+    position:relative;
+    max-width:700px;
+}
+
+.hero-content h1{
+    font-size:4rem;
+    line-height:1.2;
+    margin-bottom:20px;
+}
+
+.hero-content p{
+    font-size:1.2rem;
+    color:#cfd8dc;
+}
+
+/* ───── SCROLL OFFSET for fixed header ───── */
+
+section[id],
+footer[id]{
+    scroll-margin-top:80px;
+}
+
+/* ───── MAIN ───── */
+
+main{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:80px 0;
+}
+
+/* ───── CARD (hover animation added) ───── */
+
+.card{
+    background:#0d1a2d;
+
+    border:1px solid rgba(0,217,255,.3);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:0 0 20px rgba(0,217,255,.15);
+
+    /* ← new */
+    transition:.3s;
+}
+
+.card:hover{
+    /* ← new */
+    transform:translateY(-8px);
+    box-shadow:0 8px 30px rgba(0,217,255,.25);
+}
+
+.card-title{
+    display:flex;
+    gap:15px;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.card-title i{
+    color:#00d9ff;
+    font-size:1.5rem;
+}
+
+/* ───── TOP GRID ───── */
+
+.top-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.skill-list{
+    list-style:none;
+}
+
+.skill-list li{
+    background:#13243c;
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:10px;
+}
+
+/* ───── TOOLS ───── */
+
+.tools{
+    margin-top:70px;
+    text-align:center;
+}
+
+.tools h2{
+    margin-bottom:10px;
+}
+
+.tools p{
+    color:#b5c0d0;
+}
+
+.tool-grid{
+    margin-top:35px;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.tool-card{
+    background:#0d1a2d;
+
+    border-radius:18px;
+
+    border:1px solid rgba(153,50,255,.4);
+
+    padding:20px;
+
+    transition:.3s;
+
+    /* ← layout */
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+}
+
+.tool-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 8px 30px rgba(153,50,255,.25);
+}
+
+/* Main product image — fixed height so all cards are equal */
+.tool-img{
+    width:100%;
+    height:140px;
+    object-fit:contain;
+    border-radius:10px;
+}
+
+.tool-card h3{
+    margin-top:12px;
+    margin-bottom:2px;
+}
+
+/* Arrow divider between name and brand logo */
+.brand-arrow{
+    color:#00d9ff;
+    font-size:1rem;
+    margin:8px 0;
+    line-height:1;
+}
+
+/* Brand logo row — always same height regardless of image dimensions */
+.brand{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    width:100%;
+    min-height:55px;
+    margin-top:4px;
+}
+
+.brand img{
+    height:50px;
+    width:auto;
+    object-fit:contain;
+    max-width:140px;
+}
+
+.brand p{
+    color:#00d9ff;
+    font-size:0.85rem;
+    font-weight:500;
+}
+
+/* ───── TARGET PASAR ───── */
+
+.target-section{
+    margin-top:80px;
+}
+
+.target-section h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.target-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+/* ───── BENEFITS ───── */
+
+.benefit-section{
+    margin-top:80px;
+}
+
+.benefit-section h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.benefit-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.benefit-grid ul{
+    padding-left:20px;
+}
+
+.benefit-grid li{
+    margin-bottom:12px;
+}
+
+/* ───── FOOTER ───── */
+
+footer{
+    border-top:1px solid rgba(255,255,255,.08);
+
+    margin-top:80px;
+
+    padding:40px 8%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.social{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.social a{
+    text-decoration:none;
+    color:white;
+}
+
+.signature{
+    font-family:'Pacifico',cursive;
+    font-size:2rem;
+    color:#00d9ff;
+}
+
+.badge{
+    border:2px solid #00d9ff;
+    border-radius:50px;
+
+    padding:15px 25px;
+
+    color:#00d9ff;
+    font-weight:600;
+}
+
+/* ───── RESPONSIVE ───── */
+
+@media(max-width:900px){
+
+    /* Show hamburger, hide desktop nav */
+    .hamburger{
+        display:flex;
+    }
+
+    nav{
+        /* Hidden by default on mobile */
+        display:none;
+        position:absolute;
+        top:100%;
+        left:0;
+        width:100%;
+
+        background:rgba(7,17,31,.97);
+        backdrop-filter:blur(12px);
+        border-top:1px solid rgba(0,217,255,.2);
+
+        padding:20px 8%;
+    }
+
+    /* Shown when JS adds .open */
+    nav.open{
+        display:block;
+    }
+
+    nav ul{
+        flex-direction:column;
+        gap:18px;
+    }
+
+    nav a{
+        font-size:1.05rem;
+    }
+
+    .hero-content h1{
+        font-size:2.6rem;
+    }
+
+    .top-grid{
+        grid-template-columns:1fr;
+    }
+
+    .benefit-grid{
+        grid-template-columns:1fr;
+    }
+
+    .target-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .tool-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:30px;
+        text-align:center;
+    }
+}
+
+@media(max-width:600px){
+
+    .tool-grid{
+        grid-template-columns:1fr;
+    }
+
+    .target-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero-content h1{
+        font-size:2rem;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <!-- Logo → klik balik ke atas -->
+        <div class="logo">
+            <a href="#home">NET-ENG <span>PRO</span></a>
+        </div>
+
+        <!-- Desktop nav / Mobile dropdown -->
+        <nav id="main-nav">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skill-alat">Skill & Alat</a></li>
+                <li><a href="#manfaat">Manfaat</a></li>
+                <li><a href="#target">Target Pasar</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hamburger (muncul di HP) -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="overlay"></div>
+
+        <div class="hero-content">
+            <h1>
+                Explore the World of <br>
+                Network Engineering.
+            </h1>
+
+            <p>
+                The backbone of modern digital infrastructure.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- BARIS 1 — id untuk nav "Skill & Alat" -->
+        <section class="top-grid" id="skill-alat">
+
+            <div class="card">
+                <div class="card-title">
+                    <i class="fa-solid fa-user-gear"></i>
+                    <h2>APA ITU NETWORK ENGINEER?</h2>
+                </div>
+
+                <p>
+                    Network Engineer adalah profesional yang
+                    bertanggung jawab merancang, membangun,
+                    mengelola, dan memelihara jaringan komputer
+                    agar tetap stabil, aman, dan efisien.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    <i class="fa-solid fa-diagram-project"></i>
+                    <h2>ILMU & KETERAMPILAN</h2>
+                </div>
+
+                <ul class="skill-list">
+                    <li>IP Addressing</li>
+                    <li>Routing</li>
+                    <li>Switching</li>
+                    <li>Cyber Security</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <!-- BARIS 2 -->
+        <section class="tools" id="alat">
+
+            <h2>ALAT & BAHAN UTAMA</h2>
+            <p>Kombinasi ilmu teori dan keterampilan praktis.</p>
+
+            <div class="tool-grid">
+
+                <div class="tool-card">
+                    <img class="tool-img" src="asset/wireless-router-ieee-802-11ac-tp-link-router-2f11c4ed33e9b7f859a69d1ee61ebf7f.png" alt="Router">
+                    <h3>Router</h3>
+                    <div class="brand-arrow">↓</div>
+                    <div class="brand"><img src="asset/11111111.png" alt="MikroTik"></div>
+                </div>
+
+                <div class="tool-card">
+                    <img class="tool-img" src="asset/pngwing.com.png" alt="Switch">
+                    <h3>Switch</h3>
+                    <div class="brand-arrow">↓</div>
+                    <div class="brand"><img src="asset/cisco-ccna-png-logo-16.png" alt="CCNA"></div>
+                </div>
+
+                <div class="tool-card">
+                    <img class="tool-img" src="asset/yellow-crimping-tool-free-png.webp" alt="Tang Crimping">
+                    <h3>Tang Crimping</h3>
+                    <div class="brand-arrow">↓</div>
+                    <div class="brand"><img src="asset/cisco-ccna-png-logo-16.png" alt="CCNA"></div>
+                </div>
+
+                <div class="tool-card">
+                    <img class="tool-img" src="asset/1_n0HijHzx0BY-l0ZxJaNwEA.png" alt="Software">
+                    <h3>Software</h3>
+                    <div class="brand-arrow">↓</div>
+                    <div class="brand">
+                        <img src="asset/logo-white-1780069979059-72708.png" alt="Gns3">
+                        <img src="asset/Wireshark_Logo.svg.png" alt="Wireshark">
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- BARIS 3 — id untuk nav "Manfaat" -->
+        <section class="benefit-section" id="manfaat">
+
+            <h2>MANFAAT & TANTANGAN</h2>
+
+            <div class="benefit-grid">
+
+                <div class="card">
+
+                    <div class="card-title">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <h3>Manfaat</h3>
+                    </div>
+
+                    <ul>
+                        <li>Koneksi Stabil & Cepat</li>
+                        <li>Keamanan Data Lebih Baik</li>
+                        <li>Peluang Karir Tinggi</li>
+                        <li>Gaji Kompetitif</li>
+                    </ul>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="card-title">
+                        <i class="fa-solid fa-circle-xmark"></i>
+                        <h3>Tantangan</h3>
+                    </div>
+
+                    <ul>
+                        <li>Sistem Down Mendadak</li>
+                        <li>Serangan Siber</li>
+                        <li>Troubleshooting Kompleks</li>
+                        <li>Update Teknologi Cepat</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- BARIS 4 — Target Pasar (section baru) -->
+        <section class="target-section" id="target">
+
+            <h2>TARGET PASAR</h2>
+
+            <div class="target-grid">
+
+                <div class="card">
+                    <div class="card-title">
+                        <i class="fa-solid fa-building"></i>
+                        <h3>Perusahaan</h3>
+                    </div>
+                    <p>Perusahaan besar yang membutuhkan infrastruktur jaringan yang handal, cepat, dan aman untuk operasional harian.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <h3>Institusi Pendidikan</h3>
+                    </div>
+                    <p>Sekolah dan universitas yang memerlukan jaringan untuk mendukung kegiatan belajar mengajar berbasis digital.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">
+                        <i class="fa-solid fa-hospital"></i>
+                        <h3>Layanan Publik</h3>
+                    </div>
+                    <p>Rumah sakit, instansi pemerintah, dan fasilitas publik yang bergantung pada koneksi jaringan yang stabil.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER — id untuk nav "Kontak" -->
+    <footer id="kontak">
+
+        <div class="social">
+
+            <h4>Social Links</h4>
+
+            <a href="#" class="social-item">
+              <span class="social-icon">🌐</span>
+              network.engineer.pro.tkj
+            </a>
+            <a href="https://www.instagram.com/tkj1.nextech_/" class="social-item" target="_blank">
+                <span class="social-icon">📷</span>
+                  @tkj1.nextech_
+            </a>
+            <a href="#" class="social-item">
+                <span class="social-icon">📞</span>
+                +62 08999222333
+            </a>
+
+        </div>
+
+        <div class="signature">
+            Kelompok 7
+        </div>
+
+        <div class="badge">
+            Ujian IPAS x TKJ 1
+        </div>
+
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const nav       = document.getElementById('main-nav');
+
+        // Toggle menu buka / tutup
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('open');
+            hamburger.classList.toggle('open'); // animasi 3 garis → ×
+        });
+
+        // Tutup menu otomatis setelah klik link (di HP)
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('open');
+                hamburger.classList.remove('open');
+            });
+        });
+    </script>
+
+</body>
+</html>
