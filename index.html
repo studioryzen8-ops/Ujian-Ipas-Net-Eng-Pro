@@ -199,6 +199,36 @@ main{
     font-size:1.5rem;
 }
 
+/* ───── ANGGOTA KELOMPOK STYLE ───── */
+
+.anggota-section {
+    margin-bottom: 40px;
+}
+
+.member-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    list-style: none;
+    margin-top: 15px;
+}
+
+.member-list li {
+    background: #13243c;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(0, 217, 255, 0.1);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+.member-list li:hover {
+    border-color: #00d9ff;
+    background: #172d4a;
+}
+
 /* ───── TOP GRID ───── */
 
 .top-grid{
@@ -434,6 +464,10 @@ footer{
         font-size:2.6rem;
     }
 
+    .member-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
     .top-grid{
         grid-template-columns:1fr;
     }
@@ -459,6 +493,10 @@ footer{
 
 @media(max-width:600px){
 
+    .member-list {
+        grid-template-columns: 1fr;
+    }
+
     .tool-grid{
         grid-template-columns:1fr;
     }
@@ -475,15 +513,12 @@ footer{
 </head>
 <body>
 
-    <!-- HEADER -->
     <header>
 
-        <!-- Logo → klik balik ke atas -->
         <div class="logo">
             <a href="#home">NET-ENG <span>PRO</span></a>
         </div>
 
-        <!-- Desktop nav / Mobile dropdown -->
         <nav id="main-nav">
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -494,7 +529,6 @@ footer{
             </ul>
         </nav>
 
-        <!-- Hamburger (muncul di HP) -->
         <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
             <span></span>
             <span></span>
@@ -503,7 +537,6 @@ footer{
 
     </header>
 
-    <!-- HERO -->
     <section class="hero" id="home">
 
         <div class="overlay"></div>
@@ -521,10 +554,24 @@ footer{
 
     </section>
 
-    <!-- MAIN CONTENT -->
     <main>
 
-        <!-- BARIS 1 — id untuk nav "Skill & Alat" -->
+        <section class="anggota-section">
+            <div class="card">
+                <div class="card-title">
+                    <i class="fa-solid fa-users"></i>
+                    <h2>ANGGOTA KELOMPOK 7</h2>
+                </div>
+                <ul class="member-list">
+                    <li>Alphand A.S</li>
+                    <li>Archilles R.R</li>
+                    <li>M.Akbar R.N</li>
+                    <li>M.Farhan.M</li>
+                    <li>M.Zhia.R.A</li>
+                </ul>
+            </div>
+        </section>
+
         <section class="top-grid" id="skill-alat">
 
             <div class="card">
@@ -557,7 +604,6 @@ footer{
 
         </section>
 
-        <!-- BARIS 2 -->
         <section class="tools" id="alat">
 
             <h2>ALAT & BAHAN UTAMA</h2>
@@ -600,7 +646,6 @@ footer{
 
         </section>
 
-        <!-- BARIS 3 — id untuk nav "Manfaat" -->
         <section class="benefit-section" id="manfaat">
 
             <h2>MANFAAT & TANTANGAN</h2>
@@ -643,7 +688,6 @@ footer{
 
         </section>
 
-        <!-- BARIS 4 — Target Pasar (section baru) -->
         <section class="target-section" id="target">
 
             <h2>TARGET PASAR</h2>
@@ -680,7 +724,6 @@ footer{
 
     </main>
 
-    <!-- FOOTER — id untuk nav "Kontak" -->
     <footer id="kontak">
 
         <div class="social">
